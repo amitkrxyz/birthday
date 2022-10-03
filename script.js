@@ -49,7 +49,7 @@ const BOXSIZE = SIZE * 2;
 // creating walls
 const topWall = Bodies.rectangle(
   window.innerWidth / 2,
-  0 - BOXSIZE - 2 * SIZE,
+  0 - 1.5*BOXSIZE,
   window.innerWidth + BOXSIZE,
   BOXSIZE,
   { isStatic: true }
