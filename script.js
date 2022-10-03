@@ -1,7 +1,7 @@
 const daysText = document.querySelector("#days");
 const timeText = document.querySelector("#time");
 const title = document.querySelector("title");
-let dob = new Date("1 oct 2004");
+let dob = new Date("01 OCT 2004");
 let nextBday;
 let nowDate = new Date();
 
@@ -123,12 +123,11 @@ setInterval(() => {
       (dob.getDate() > nowDate.getDate() &&
         dob.getMonth() >= nowDate.getMonth())
     ) {
-      console.log("second condition activated");
       nextBday = new Date(
         `${dob.getMonth() + 1}/${dob.getDate()}/${nowDate.getFullYear()}`
       );
     }
-    // console.log(nextBday)
+
     const remTime = getDuration(nextBday - new Date());
     time = `${addZeros(remTime.hours)}:${addZeros(remTime.minutes)}:${addZeros(
       remTime.seconds
@@ -145,10 +144,10 @@ setInterval(() => {
 }, 500);
 
 // Adding initial boxes
-let n = nowDate.getFullYear() - dob.getFullYear();
+let age = nowDate.getFullYear() - dob.getFullYear();
 setInterval(() => {
-  n = nowDate.getFullYear() - dob.getFullYear();
-  const totalBody = n + 4; // n + all 4 walls
+  age = nowDate.getFullYear() - dob.getFullYear();
+  const totalBody = age + 4; // n + all 4 walls
   if (world.bodies.length < totalBody) {
     addBox();
   }
@@ -157,14 +156,13 @@ setInterval(() => {
     const box = world.bodies[i];
     if (
       box.position.y > window.innerHeight + BOXSIZE ||
-      box.position.y < 0 - BOXSIZE ||
       box.position.x > window.innerWidth + BOXSIZE ||
       box.position.x < 0 - SIZE * 16
     ) {
       Composite.remove(engine.world, box);
     }
   }
-}, 1000 / Math.sqrt(n));
+}, 1000 / Math.sqrt(age));
 
 // Animating container
 setTimeout(() => {
